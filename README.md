@@ -17,12 +17,12 @@ Installation
 ------------
 
 `nolo-librato` is intended to be installed via the
-RubyGems[http://rubygems.org/] system.  To get the latest
+[RubyGems](http://rubygems.org/) system.  To get the latest
 version, simply enter the following into your command prompt:
 
 	$ gem install nolo-librato
 
-You must have RubyGems[http://rubygems.org/] installed for
+You must have [RubyGems](http://rubygems.org/) installed for
 the above to work.
 
 If you want to build the gem locally, run the following command:
