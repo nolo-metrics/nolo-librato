@@ -1,6 +1,8 @@
 Nolo-Librato
 ============
 
+[![Build Status](https://travis-ci.org/nolo-metrics/nolo-librato.png)](https://travis-ci.org/nolo-metrics/nolo-librato)
+
 `nolo-librato` is an easy way to pipe your nolo plugins into [librato
 metrics](https://metrics.librato.com).
 
