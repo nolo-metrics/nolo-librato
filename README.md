@@ -1,7 +1,8 @@
 Nolo-Librato
 ============
 
-`nolo-librato` is an easy way to pipe your nolo plugins into librato.
+`nolo-librato` is an easy way to pipe your nolo plugins into [librato
+metrics](https://metrics.librato.com).
 
 Usage
 -----
