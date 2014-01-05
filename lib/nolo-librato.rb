@@ -1,0 +1,1 @@
+require 'nolo-librato/cli'
