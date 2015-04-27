@@ -12,9 +12,9 @@ Usage
 Ensure you've set the `LIBRATO_USER` and `LIBRATO_TOKEN` environment
 variables.
 
-You can easily schedule running a plugin by adding it to your crontab:
+You can easily schedule running a meter by adding it to your crontab:
 
-    * * * * * LIBRATO_USER=foo LIBRATO_TOKEN=bar /opt/nolo/bin/nolo-librato /opt/nolo/plugins/load
+    * * * * * /opt/nolo/bin/nolo-json /opt/nolo/plugins/load | LIBRATO_USER=foo LIBRATO_TOKEN=bar /opt/nolo/bin/nolo-librato
 
 Installation
 ------------

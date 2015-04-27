@@ -1,13 +1,13 @@
-require_relative 'collector'
+require_relative 'sink'
 
 module Nolo
 module Librato
 
 # command-line wrapper takes environment and parameters, ensures sanity, and passes them to the collector
 class CLI
-  attr_accessor :plugin, :credentials
+  attr_accessor :stream, :credentials
   def initialize(env, *argv)
-    self.plugin = argv.first
+    self.stream = ARGF
     self.credentials = {
       user: env['LIBRATO_USER'],
       token: env['LIBRATO_TOKEN']
@@ -15,8 +15,8 @@ class CLI
   end
 
   def run
-    collector = Collector.new(plugin, credentials)
-    collector.run
+    sink = Sink.new(stream, credentials)
+    sink.run
   end
 
 end

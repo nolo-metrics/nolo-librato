@@ -6,10 +6,10 @@ module Nolo
 module Librato
 
 # collects metrics from a plugin and sumbits them to a handler
-class Collector
-  attr_accessor :plugin, :credentials
-  def initialize(plugin, credentials)
-    self.plugin = plugin
+class Sink
+  attr_accessor :stream, :credentials
+  def initialize(stream, credentials)
+    self.stream = stream
     self.credentials = credentials
   end
   # collect metrics and pass them to the handler
@@ -20,11 +20,8 @@ class Collector
   # collect metrics from each plugin, ensuring each has
   # hostname and date, and return those metrics
   def collect_metrics
-    hostname = `hostname -f`.chomp # TODO: use fqdn
-    date = Time.now
-    raw_metrics = %x[nolo-json #{plugin}]
     metrics = []
-    JSON.parse(raw_metrics).each do |plugin_name, data|
+    raw_metrics.each do |plugin_name, data|
       data.each do |metric|
         metrics << Nolo::Metric.new(
           hostname,
@@ -36,6 +33,7 @@ class Collector
     end
     metrics
   end
+
   # submit all metrics to the handler
   def send_metrics(metrics)
     handler = Handler.new credentials
@@ -45,6 +43,17 @@ class Collector
     end
     handler.close
   end
+
+	private
+	def hostname
+    `hostname -f`.chomp # TODO: use fqdn
+	end
+	def date
+    Time.now
+	end
+	def raw_metrics
+    JSON.parse stream.read
+	end
 end
 
 end
