@@ -6,8 +6,10 @@ TODO
 * docs in rdoc.info
 * qa in codecomplete
 * gem in rubygems
-* config from file
 * document contributing process
 * dependencies in gemnasium
 * mailing list in librelist
 * tutorial
+* execute file as meter if a param has exec bit
+* helpful error if LIBRATO_USER, LIBRATO_TOKEN unset
+* load env from file (/etc/default/nolo-librato)
